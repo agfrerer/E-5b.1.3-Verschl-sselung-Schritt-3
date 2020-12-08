@@ -7,7 +7,7 @@ public class TranspositionCipher implements Cipher {
 		this.transpositionLevel = transpositionLevel;
 	}
 	
-	public void setTranspositionLevel(int transpositionLevel) {
+	public void setTranspositionLevel(int transpositionLevel) { 
 		if(transpositionLevel>0) {
 			this.transpositionLevel = transpositionLevel;
 		}
