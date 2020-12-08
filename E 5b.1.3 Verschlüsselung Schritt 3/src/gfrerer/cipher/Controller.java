@@ -100,7 +100,11 @@ public class Controller implements ActionListener {
 		shc.setShiftValue(10);
 		System.out.println(shc.getSecretAlphabet()); **/
 
-		new Controller();
+		//new Controller();
+		TranspositionCipher tpC = new TranspositionCipher(2);
+		tpC.setTranspositionLevel(2);
+		System.out.println(tpC.encrypt("LEONARDO"));
+		System.out.print(tpC.decrypt("LNDEAOOR"));
 		
 	}
 }
