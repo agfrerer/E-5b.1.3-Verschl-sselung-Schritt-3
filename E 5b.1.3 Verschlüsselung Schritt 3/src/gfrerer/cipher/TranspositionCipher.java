@@ -8,11 +8,6 @@ public class TranspositionCipher implements Cipher {
 
 	public TranspositionCipher(int transpositionLevel) {
 		setTranspositionLevel(transpositionLevel);
-
-		this.a0 = new char[0];
-		this.a1 = new char[0];
-		this.a2 = new char[0];
-		this.a3 = new char[0];
 	}
 
 	public void setTranspositionLevel(int transpositionLevel) { 
@@ -27,34 +22,38 @@ public class TranspositionCipher implements Cipher {
 		try {
 			int reihen = this.transpositionLevel;
 			String endtext = "";
-
+			this.a0 = new char[0];
+			this.a1 = new char[0];
+			this.a2 = new char[0];
+			this.a3 = new char[0];
+			
 			for(int i=0; i < text.length(); i++) {
 				switch(i%reihen) {
-				case 0: this.a0 = Arrays.copyOf(this.a0, this.a0.length+1);
-				this.a0[this.a0.length-1] = text.charAt(i);
+				case 0: a0 = Arrays.copyOf(a0, a0.length+1);
+				a0[a0.length-1] = text.charAt(i);
 				break;
-				case 1: this.a1 = Arrays.copyOf(this.a1, this.a1.length+1);
-				this.a1[this.a1.length-1] = text.charAt(i);
+				case 1: a1 = Arrays.copyOf(a1, a1.length+1);
+				a1[this.a1.length-1] = text.charAt(i);
 				break;
-				case 2: this.a2 = Arrays.copyOf(this.a2, this.a2.length+1);
-				this.a2[this.a2.length-1] = text.charAt(i);
+				case 2: a2 = Arrays.copyOf(a2, a2.length+1);
+				a2[this.a2.length-1] = text.charAt(i);
 				break;
-				case 3: this.a3 = Arrays.copyOf(this.a3, this.a3.length+1);
-				this.a3[this.a3.length-1] = text.charAt(i);
+				case 3: a3 = Arrays.copyOf(a3, a3.length+1);
+				a3[this.a3.length-1] = text.charAt(i);
 				break;
 				default: System.out.println("Leider ein Fehler Anja :( Aber du packst das noch!");
 				}
 			}
-			for(int i=0; i < this.a0.length; i++) {
+			for(int i=0; i < a0.length; i++) {
 				endtext = endtext + a0[i];
 			}
-			for(int i=0; i < this.a1.length; i++) {
+			for(int i=0; i < a1.length; i++) {
 				endtext = endtext + a1[i];
 			}
-			for(int i=0; i < this.a2.length; i++) {
+			for(int i=0; i < a2.length; i++) {
 				endtext = endtext + a2[i];
 			}
-			for(int i=0; i < this.a3.length; i++) {
+			for(int i=0; i < a3.length; i++) {
 				endtext = endtext + a3[i];
 			}
 			return endtext;

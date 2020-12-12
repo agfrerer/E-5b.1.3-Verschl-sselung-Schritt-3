@@ -16,7 +16,7 @@ public class PanelKlasse extends JPanel {
 	private JPanel p1, p2, p3, p4;
 	private JLabel l1, l2;
 	private JTextField textfeld;
-	private JRadioButton caesar, subst;
+	private JRadioButton caesar, subst, position;
 	private ButtonGroup bg;
 	private JButton ver, ent;
 	private Controller c;
@@ -45,22 +45,25 @@ public class PanelKlasse extends JPanel {
 		this.add(p1, BorderLayout.PAGE_START);
 		
 		//Cäsar oder per Geheimalphabet
-		GridLayout auswahl = new GridLayout(1, 2);
 		p2 = new JPanel();
 		caesar = new JRadioButton("Cäsar-Verschlüsselung");
 		subst = new JRadioButton("Geheimalphabet");
+		position = new JRadioButton("Transposition");
 		bg = new ButtonGroup();
 		
 		caesar.addActionListener(c);
 		subst.addActionListener(c);
+		position.addActionListener(c);
 		caesar.setFont(schrift);
 		subst.setFont(schrift);
+		position.setFont(schrift);
 		
-		p2.setLayout(auswahl);
 		bg.add(caesar);
 		bg.add(subst);
+		bg.add(position);
 		p2.add(caesar);
 		p2.add(subst);
+		p2.add(position);
 		this.add(p2);
 		
 		//Verschlüsseln / Entschlüsseln
@@ -105,6 +108,8 @@ public class PanelKlasse extends JPanel {
 			rueckgabe = "Cäsar";
 		}else if(this.subst.isSelected()) {
 			rueckgabe = "Secret";
+		}else if(this.position.isSelected()) {
+			rueckgabe = "Position";
 		}
 		return rueckgabe;
 	}

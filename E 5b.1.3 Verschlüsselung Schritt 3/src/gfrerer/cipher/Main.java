@@ -17,6 +17,7 @@ public class Main {
 		TranspositionCipher tpC = new TranspositionCipher(3); //Wert zwischen 1-4 möglich!
 		tpC.setTranspositionLevel(3);
 		System.out.println(tpC.encrypt("Informatik"));
-		//System.out.println(tpC.decrypt("Ksen"));
+		//System.out.println(tpC.decrypt("Ioaknrtfmi"));
+		new Controller();
 	}
 }

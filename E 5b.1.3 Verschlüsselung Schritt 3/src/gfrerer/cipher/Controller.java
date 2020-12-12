@@ -8,6 +8,7 @@ public class Controller implements ActionListener {
 	private MonoAlphabeticCipher maC;
 	private ShiftCipher shiftC;
 	private SubstitutionCipher substC;
+	private TranspositionCipher tpC;
 	private PanelKlasse panel;
 	private FrameKlasse frame;
 
@@ -15,6 +16,7 @@ public class Controller implements ActionListener {
 		this.maC = new MonoAlphabeticCipher();
 		this.shiftC = new ShiftCipher();
 		this.substC = new SubstitutionCipher("qwertzuiopüasdfghjklöäyxcvbnmß");
+		this.tpC = new TranspositionCipher(0);
 		
 		this.panel = new PanelKlasse(this);
 		this.frame = new FrameKlasse(panel);
@@ -26,7 +28,7 @@ public class Controller implements ActionListener {
 		String selected = panel.selected();
 		String ausgabe = "";
 
-		if(e.getSource() == panel.getVer()){
+		if(e.getActionCommand().contentEquals("Verschlüsseln")){
 
 			if(selected.equals("Cäsar")) {
 				int value = eingabeZahl("Ver");
@@ -39,9 +41,19 @@ public class Controller implements ActionListener {
 				this.maC.setSecretAlphabet(secret);
 				ausgabe = this.maC.encrypt(eingabe);
 				panel.setPanel(ausgabe);
+			}else if(selected.equals("Position")) {
+				int level = 0;
+				try {
+					level = Integer.parseInt(JOptionPane.showInputDialog("Geben Sie ein Transpositionslevel zwischen 1-4 ein!"));
+					tpC.setTranspositionLevel(level);
+					ausgabe = this.tpC.encrypt(eingabe);
+					panel.setPanel(ausgabe);
+				}catch(Exception a) {
+					System.out.println("Wert nicht numerisch!");
+				}
 			}
 			
-		}else if(e.getSource() == panel.getEnt()){
+		}else if(e.getActionCommand().contentEquals("Entschlüsseln")){
 
 			if(selected.equals("Cäsar")) {
 				int value = eingabeZahl("Ent");
