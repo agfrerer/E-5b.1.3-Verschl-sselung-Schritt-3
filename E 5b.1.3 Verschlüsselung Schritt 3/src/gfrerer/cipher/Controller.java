@@ -87,24 +87,4 @@ public class Controller implements ActionListener {
 		this.substC.setSecretAlphabet(eingabe);
 		return eingabe;
 	}
-
-	public static void main(String[] args) {
-		/**SubstitutionCipher sc = new SubstitutionCipher("qwertzuiopüasdfghjklöäyxcvbnmß");
-		try {
-			sc.encrypt("Anja Gfrerer");
-			sc.decrypt("Qdpq Uzjtjtj");
-		}catch(Exception e) {
-			System.out.println("Etwas ist in Ihrem Alphabet schiefgegangen!");
-		}
-		ShiftCipher shc = new ShiftCipher();
-		shc.setShiftValue(10);
-		System.out.println(shc.getSecretAlphabet()); **/
-
-		//new Controller();
-		TranspositionCipher tpC = new TranspositionCipher(2);
-		tpC.setTranspositionLevel(2);
-		System.out.println(tpC.encrypt("LEONARDO"));
-		System.out.print(tpC.decrypt("LNDEAOOR"));
-		
-	}
 }
