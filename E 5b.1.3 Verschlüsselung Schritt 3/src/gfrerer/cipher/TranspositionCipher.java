@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class TranspositionCipher implements Cipher {
 	private int transpositionLevel;
 	private char[] a0, a1, a2, a3;
-
+ 
 	public TranspositionCipher(int transpositionLevel) {
 		setTranspositionLevel(transpositionLevel);
 	}
@@ -33,13 +33,13 @@ public class TranspositionCipher implements Cipher {
 				a0[a0.length-1] = text.charAt(i);
 				break;
 				case 1: a1 = Arrays.copyOf(a1, a1.length+1);
-				a1[this.a1.length-1] = text.charAt(i);
+				a1[a1.length-1] = text.charAt(i); 
 				break;
 				case 2: a2 = Arrays.copyOf(a2, a2.length+1);
-				a2[this.a2.length-1] = text.charAt(i);
+				a2[a2.length-1] = text.charAt(i);
 				break;
 				case 3: a3 = Arrays.copyOf(a3, a3.length+1);
-				a3[this.a3.length-1] = text.charAt(i);
+				a3[a3.length-1] = text.charAt(i);
 				break;
 				default: System.out.println("Leider ein Fehler Anja :( Aber du packst das noch!");
 				}

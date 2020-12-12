@@ -28,7 +28,7 @@ public class Controller implements ActionListener {
 		String selected = panel.selected();
 		String ausgabe = "";
 
-		if(e.getActionCommand().contentEquals("Verschlüsseln")){
+		if(e.getActionCommand().contentEquals("Verschlüsseln")){ 
 
 			if(selected.equals("Cäsar")) {
 				int value = eingabeZahl("Ver");

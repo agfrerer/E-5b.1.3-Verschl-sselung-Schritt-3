@@ -8,7 +8,7 @@ public class KeywordCipher extends MonoAlphabeticCipher{
 		this.keyword = keyword;
 	}
 	
-	public void setKeyword(String keyword) {
+	public void setKeyword(String keyword) { 
 		switch(keyword) {
 		case "original":	super.setSecretAlphabet("abcdefghijklmnopqrstuvwxyzäöüß");
 							break;
